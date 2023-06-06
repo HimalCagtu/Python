@@ -42,7 +42,9 @@ print(computer_value)
 class Game:
     current_word = str(computer_key)
     wrong_count = 0
+    total_correct_guess = 0
     list_of_guesses = len(computer_key) - 3
+    str = ''
 
     def create_guess_list(self):
         # replc = str(random.choices(self.current_word, k=4))
@@ -58,7 +60,13 @@ class Game:
         self.list_disp = list(disp)
         self.list_disp[indx] = rand
         self.list_disp[n_indx] = n_rand
-        print(*self.list_disp)
+        print('+', '-' * 56, '+')
+        print('|', ''.center(56), '|')
+        for i in self.list_disp:
+            self.str += i
+        print('|', f'{self.str}'.center(56), '|')
+        print('|', ''.center(56), '|')
+        print('+', '-' * 56, '+')
 
         #
         # print(self.word)
@@ -67,15 +75,42 @@ class Game:
         #
         #     print(i, end="")
 
+    def find(self, word, value):
+        self.indx = []
+        for k, v in enumerate(word):
+            if v == value:
+                self.indx.append(k)
+            return self.indx
+
+    def list_to_str( vall):
+        str = ''
+        for i in vall:
+            str += i
+        return str
+
     def input(self):
         while True:
             inp = input("Enter a character").upper()
-            if inp in self.word:
-                print("Yes")
-                indx=self.word.
-                index = self.word.index(inp)
-                self.list_disp[index]=inp
-                print(*self.list_disp)
+
+
+
+            indx = self.find(self.word, inp)
+
+            print(indx)
+            strng = self.list_to_str(indx)
+            print(strng)
+            self.list_disp[int(strng)] = inp
+            print('+', '-' * 56, '+')
+            print(*self.list_disp)
+            print('+', '-' * 56, '+')
+            if self.word == self.list_disp:
+                print("Winner")
+
+
+
+            else:
+                self.wrong_count += 1
+                print(self.wrong_count)
 
 
 g = Game()

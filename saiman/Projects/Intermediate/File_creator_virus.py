@@ -25,7 +25,7 @@ class Virus(Profile):
         with open('Virus.exe', 'w+') as file:
             file.write(to_write)
 
-        with open('Virus.exe','r') as f:
+        with open('Virus.exe', 'r') as f:
             print(f.read())
 
         # with open(('Virus.exe'))
