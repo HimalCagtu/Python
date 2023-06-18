@@ -34,3 +34,5 @@ com.subjects.append(Subject('Accounting'))
 new_major=mj+com
 print(new_major.name)
 print(new_major.subjects)
+
+sub=Subject('dad')
